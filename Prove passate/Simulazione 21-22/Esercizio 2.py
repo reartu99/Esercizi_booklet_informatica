@@ -18,7 +18,7 @@ def distanza(x1, x2, y1, y2):
 
 
 class Punto:
-    def __int__(self, x, y):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
 
@@ -28,6 +28,9 @@ class Triangolo:
         self.p1 = list1
         self.p2 = list2
         self.p3 = list3
+        self.d12 = distanza(self.p1[0], self.p2[0], self.p1[1], self.p2[1])
+        self.d23 = distanza(self.p2[0], self.p3[0], self.p2[1], self.p3[1])
+        self.d31 = distanza(self.p3[0], self.p1[0], self.p3[1], self.p1[1])
 
     def ricrea(self, p1n, p2n, p3n):
         self.p1 = p1n
@@ -39,19 +42,28 @@ class Triangolo:
         return self.p1 + self.p2 + self.p3
 
     def perimetro(self):
-        d12 = distanza(self.p1[0], self.p2[0], self.p1[1], self.p2[1])
-        d23 = distanza(self.p2[0], self.p3[0], self.p2[1], self.p3[1])
-        d31 = distanza(self.p3[0], self.p1[0], self.p3[1], self.p1[1])
-        dsum = d12 + d23 + d31
+        dsum = self.d12 + self.d23 + self.d31
         print("The perimeter is ", dsum)
         return dsum
 
+    def check(self):
+        if self.d12 < self.d23 + self.d31 and self.d23 < self.d12 + self.d31 and self.d31 < self.d23 + self.d12:
+            return True
+        else:
+            return False
 
-p11 = [0, 1]
-p22 = [1, 0]
-p33 = [0, 0]
 
-T1 = Triangolo(p11, p22, p33)
-strings = T1.posizioni()
-print(strings)
-T1.perimetro()
+def main():
+
+    p11 = Punto(0, 1)
+    p22 = Punto(1, 0)
+    p33 = Punto(0, 0)
+
+    t1 = Triangolo([p11.x, p11.y], [p22.x, p22.y], [p33.x, p33.y])
+    t1.posizioni()
+    t1.perimetro()
+    print(t1.check())
+
+
+if __name__ == "__main__":
+    main()
