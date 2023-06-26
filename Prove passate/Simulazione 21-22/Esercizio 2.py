@@ -43,7 +43,7 @@ class Triangolo:
         d23 = distanza(self.p2[0], self.p3[0], self.p2[1], self.p3[1])
         d31 = distanza(self.p3[0], self.p1[0], self.p3[1], self.p1[1])
         dsum = d12 + d23 + d31
-        print("The distance is ", dsum)
+        print("The perimeter is ", dsum)
         return dsum
 
 
