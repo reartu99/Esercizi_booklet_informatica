@@ -11,7 +11,7 @@ try:
     listain = []
     while True:
         listain.append(float(input()))
-except:
+except (Exception, ):
     print(listain)
 
 blacklist = []
