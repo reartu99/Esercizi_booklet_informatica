@@ -39,7 +39,7 @@ class Triangolo:
 
     def posizioni(self):
         print("Le posizioni sono: ", self.p1, self.p2, self.p3)
-        return self.p1 + self.p2 + self.p3
+        return str(self.p1 + self.p2 + self.p3)
 
     def perimetro(self):
         dsum = self.d12 + self.d23 + self.d31
