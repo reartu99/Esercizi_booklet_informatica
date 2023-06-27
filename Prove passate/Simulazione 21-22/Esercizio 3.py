@@ -5,7 +5,20 @@ Scrivere un programma che legge il contenuto del file “data.txt” ed esegue i
 
 """
 
-import numpy as np
+# import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
-with open("data.txt", "r") as f:
+f = pd.read_csv("data.txt")
+print(f.head(0))
+xs = f.iloc[:, 0]
+print(xs)
+ys = f.iloc[:, 2]
+print(ys)
 
+plt.scatter(xs, ys)
+plt.show()
+
+cols = int(input("Enter a column: "))
+cols = f.iloc[:, cols]
+print(cols)
