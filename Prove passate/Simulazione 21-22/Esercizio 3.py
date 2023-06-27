@@ -19,6 +19,9 @@ print(ys)
 plt.scatter(xs, ys)
 plt.show()
 
-cols = int(input("Enter a column: "))
-cols = f.iloc[:, cols]
-print(cols)
+colsy = int(input("Enter a column: "))
+cols = f.iloc[:, colsy]
+sums = 0
+for item in cols:
+    sums += item
+print(sums)
